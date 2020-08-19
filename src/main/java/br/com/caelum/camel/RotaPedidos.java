@@ -14,13 +14,16 @@ public class RotaPedidos {
 			public void configure() throws Exception {
 
 				from("file:input-orders?delay=5s&noop=true").
-				log("camel working!!").
-				log("${id} - ${body}").//using EL
+					log("${id}").
+					marshal().xmljson().
+					log("${body}").
+					setHeader("CamelFilename", simple("${file:name.noext}.json")).
 				to("file:output-orders");
 			}
 		});
 
 		context.start();
-		Thread.sleep(5000);
+		Thread.sleep(20000);
+		context.stop();
 	}
 }
