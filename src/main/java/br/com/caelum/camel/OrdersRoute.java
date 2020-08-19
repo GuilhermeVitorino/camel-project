@@ -4,7 +4,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 
-public class RotaPedidos {
+public class OrdersRoute {
 
 	public static void main(String[] args) throws Exception {
 
@@ -14,7 +14,11 @@ public class RotaPedidos {
 			public void configure() throws Exception {
 
 				from("file:input-orders?delay=5s&noop=true").
-					log("${id}").
+					split().
+						xpath("order/itens/item").
+						log("${body}").
+                    filter().
+                        xpath("/item/format[text()='EBOOK']").
 					marshal().xmljson().
 					log("${body}").
 					setHeader("CamelFilename", simple("${file:name.noext}.json")).
