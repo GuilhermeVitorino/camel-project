@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pedido>
+    <id>4298608</id>
+    <purchaseDate>2013-12-05T18:10:07.963-02:00</purchaseDate>
+    <itens>
+         <item>
+            <format>IMPRESSO</format>
+            <quantidade>1</quantidade>
+            <book>
+                <code>TDD</code>
+                <title>Test-Driven Development: Teste e Design no Mundo Real</title>
+                <titleSmall>TDD</titleSmall>
+                <writerName>Mauricio Aniche</writerName>
+                <ebookValue>29.90</ebookValue>
+                <printedBookValue>59.90</printedBookValue>
+            </book>
+        </item>
+        <item>
+            <format>EBOOK</format>
+            <quantidade>1</quantidade>
+            <book>
+                <code>ARQ</code>
+                <title>Introdução à Arquitetura e Design de Software</title>
+                <titleSmall>Arquitetura Java</titleSmall>
+                <writerName>Sergio Lopes, Paulo Silveira, Guilherme Silveira, Nico Steppat, outros</writerName>
+                <ebookValue>29.90</ebookValue>
+                <printedBookValue>79.90</printedBookValue>
+            </book>
+        </item>
+    </itens>
+    <payment>
+        <status>CONFIRMADO</status>
+        <value>89.80</value>
+        <client>Tatiana Geraldina Granjeiro</client>
+        <client-email>tatgran@zxc.com</client-email>
+    </payment>
+</pedido>

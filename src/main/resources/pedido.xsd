@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="pedido" type="pedido"/>
+
+  <xs:complexType name="pedido">
+    <xs:sequence>
+      <xs:element name="id" type="xs:positiveInteger" minOccurs="1"/>
+      <xs:element name="purchaseDate" type="xs:dateTime" minOccurs="1"/>
+      <xs:element name="itens" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+            <xs:sequence>
+              <xs:element name="item" type="itemCompra" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="payment" type="payment" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="itemCompra">
+    <xs:sequence>
+      <xs:element name="format" type="tipo_format" minOccurs="0"/>
+      <xs:element name="quantidade" type="xs:positiveInteger" minOccurs="1"/>
+      <xs:element name="quantidadeEstoque" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="book" type="book" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="book">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" minOccurs="0"/>
+      <xs:element name="title" type="xs:string" minOccurs="0"/>
+      <xs:element name="titleSmall" type="xs:string" minOccurs="0"/>
+      <xs:element name="writerName" type="xs:string" minOccurs="0"/>
+      <xs:element name="imagem" type="xs:string" minOccurs="0"/>
+      <xs:element name="ebookValue" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="printedBookValue" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="descricao" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="payment">
+    <xs:sequence>
+      <xs:element name="status" type="status_payment_type" minOccurs="1"/>
+      <xs:element name="value" type="positive_decimal_type" minOccurs="1"/>
+      <xs:element name="client" type="xs:string" minOccurs="1"/>
+      <xs:element name="client-email" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="status_payment_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CANCELADO"/>
+      <xs:enumeration value="CONFIRMADO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipo_format">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EBOOK"/>
+      <xs:enumeration value="IMPRESSO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="positive_decimal_type">
+  <xs:restriction base="xs:decimal">
+    <xs:minInclusive value="0"/>
+  </xs:restriction>
+</xs:simpleType>
+</xs:schema>
+

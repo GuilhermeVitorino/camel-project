@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pedido>
+    <id>2451256</id>
+    <purchaseDate>2013-12-05T18:21:07.529-02:00</purchaseDate>
+    <itens>
+         <item>
+            <format>EBOOK</format>
+            <quantidade>1</quantidade>
+            <book>
+                <code>ARQ</code>
+                <title>Introdução à Arquitetura e Design de Software</title>
+                <titleSmall>Arquitetura Java</titleSmall>
+                <writerName>Sergio Lopes, Paulo Silveira, Guilherme Silveira, Nico Steppat, outros</writerName>
+                <ebookValue>29.90</ebookValue>
+                <printedBookValue>79.90</printedBookValue>
+            </book>
+        </item>
+    </itens>
+    <payment>
+        <status>CONFIRMADO</status>
+        <value>29.90</value>
+        <client>Edgar  Brião</client>
+        <client-email>edgar.b@abc.com</client-email>
+    </payment>
+</pedido>
