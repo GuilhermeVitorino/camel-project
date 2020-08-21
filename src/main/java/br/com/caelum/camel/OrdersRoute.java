@@ -15,6 +15,18 @@ public class OrdersRoute {
 			public void configure() throws Exception {
 
 				from("file:input-orders?delay=5s&noop=true").
+					routeId("orders-route").
+						multicast().
+							to("direct:soap").
+							to("direct:http");
+
+				from("direct:soap").
+					routeId("soap-route").
+						log("calling soap service: ${body}").
+				to("mock:soap");
+
+				from("direct:http").
+					routeId("http-route").
 					setProperty("orderId", xpath("/order/id/text()")).
 					setProperty("clientId", xpath("/order/payment/client-email/text()")).
 					split().
