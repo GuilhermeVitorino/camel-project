@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="pedido" type="pedido"/>
+  <xs:element name="order" type="order"/>
 
-  <xs:complexType name="pedido">
+  <xs:complexType name="order">
     <xs:sequence>
       <xs:element name="id" type="xs:positiveInteger" minOccurs="1"/>
       <xs:element name="purchaseDate" type="xs:dateTime" minOccurs="1"/>

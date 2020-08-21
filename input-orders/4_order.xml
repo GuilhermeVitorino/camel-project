@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<pedido>
+<order>
     <id>2451256</id>
     <purchaseDate>2013-12-05T18:21:07.529-02:00</purchaseDate>
     <itens>
@@ -21,4 +21,4 @@
         <client>Edgar Milho</client>
         <client-email>milhol@mnb.com</client-email>
     </payment>
-</pedido>
+</order>

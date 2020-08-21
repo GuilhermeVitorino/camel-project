@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<pedido>
+<order>
     <id>4298608</id>
     <purchaseDate>2013-12-05T18:10:07.963-02:00</purchaseDate>
     <itens>
@@ -34,4 +34,4 @@
         <client>Tatiana Geraldina Granjeiro</client>
         <client-email>tatgran@zxc.com</client-email>
     </payment>
-</pedido>
+</order>

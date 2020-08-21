@@ -1,6 +1,7 @@
 package br.com.caelum.camel;
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
 
@@ -14,15 +15,18 @@ public class OrdersRoute {
 			public void configure() throws Exception {
 
 				from("file:input-orders?delay=5s&noop=true").
+					setProperty("orderId", xpath("/order/id/text()")).
+					setProperty("clientId", xpath("/order/payment/client-email/text()")).
 					split().
 						xpath("order/itens/item").
-						log("${body}").
                     filter().
                         xpath("/item/format[text()='EBOOK']").
-					marshal().xmljson().
-					log("${body}").
-					setHeader("CamelFilename", simple("${file:name.noext}.json")).
-				to("file:output-orders");
+					setProperty("ebookId", xpath("/item/book/code/text()")).
+						marshal().
+						xmljson().
+					setHeader(Exchange.HTTP_QUERY,
+						simple("clientId=${property.clientId}&orderId=${property.orderId}&ebookId=${property.ebookId}")).
+				to("http4://localhost:8080/webservices/ebook/item");
 			}
 		});
 
