@@ -22,8 +22,10 @@ public class OrdersRoute {
 
 				from("direct:soap").
 					routeId("soap-route").
-						log("calling soap service: ${body}").
-				to("mock:soap");
+					to("xslt:order-to-soap.xslt").
+					log("calling soap service: ${body}").
+					setHeader(Exchange.CONTENT_TYPE, constant("text/xml")).
+				to("http4://localhost:8080/webservices/financial");
 
 				from("direct:http").
 					routeId("http-route").

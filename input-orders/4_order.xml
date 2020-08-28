@@ -5,7 +5,7 @@
     <itens>
        <item>
             <format>EBOOK</format>
-            <quantidade>1</quantidade>
+            <quantity>1</quantity>
             <book>
                 <code>SOA</code>
                 <title>SOA aplicado: Integrando com web services e além</title>

@@ -5,7 +5,7 @@
     <itens>
 		<item>
             <format>IMPRESSO</format>
-            <quantidade>1</quantidade>
+            <quantity>1</quantity>
             <book>
                 <code>mean</code>
                 <title>Full stack JavaScript para aplicações web com MongoDB, Express, Angular e Node</title>
@@ -17,7 +17,7 @@
         </item>
         <item>
             <format>EBOOK</format>
-            <quantidade>1</quantidade>
+            <quantity>1</quantity>
             <book>
                 <code>ARQ</code>
                 <title>Introdução à Arquitetura e Design de Software</title>

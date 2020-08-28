@@ -5,7 +5,7 @@
     <itens>
          <item>
             <format>IMPRESSO</format>
-            <quantidade>1</quantidade>
+            <quantity>1</quantity>
             <book>
                 <code>TDD</code>
                 <title>Test-Driven Development: Teste e Design no Mundo Real</title>
@@ -17,7 +17,7 @@
         </item>
         <item>
             <format>EBOOK</format>
-            <quantidade>1</quantidade>
+            <quantity>1</quantity>
             <book>
                 <code>ARQ</code>
                 <title>Introdução à Arquitetura e Design de Software</title>

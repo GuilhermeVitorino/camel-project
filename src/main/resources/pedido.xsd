@@ -22,8 +22,8 @@
   <xs:complexType name="itemCompra">
     <xs:sequence>
       <xs:element name="format" type="tipo_format" minOccurs="0"/>
-      <xs:element name="quantidade" type="xs:positiveInteger" minOccurs="1"/>
-      <xs:element name="quantidadeEstoque" type="xs:positiveInteger" minOccurs="0"/>
+      <xs:element name="quantity" type="xs:positiveInteger" minOccurs="1"/>
+      <xs:element name="quantityEstoque" type="xs:positiveInteger" minOccurs="0"/>
       <xs:element name="book" type="book" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
