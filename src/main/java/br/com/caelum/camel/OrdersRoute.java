@@ -1,5 +1,6 @@
 package br.com.caelum.camel;
 
+import org.apache.activemq.camel.component.ActiveMQComponent;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -11,12 +12,14 @@ public class OrdersRoute {
 	public static void main(String[] args) throws Exception {
 
 		CamelContext context = new DefaultCamelContext();
+		context.addComponent("activemq", ActiveMQComponent.activeMQComponent("tcp://localhost:61616"));
+
 		context.addRoutes(new RouteBuilder() {
 			@Override
 			public void configure() throws Exception {
 
 				errorHandler(
-						deadLetterChannel("file:error").
+						deadLetterChannel("activemq:queue:invoices.DLQ").
 							maximumRedeliveries(3).//tente 3 vezes
 							redeliveryDelay(5000). //espera 5 segundo entre as tentativas
 						onRedelivery(new Processor(){
@@ -29,9 +32,9 @@ public class OrdersRoute {
 						})
 				);
 
-				from("file:input-orders?delay=5s&noop=true").
+				from("activemq:queue:invoices").
 					routeId("orders-route").
-					to("validator:pedido.xsd").
+					to("validator:order.xsd").
 					multicast().
 						to("direct:soap").
 						to("direct:http");
